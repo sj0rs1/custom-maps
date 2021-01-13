@@ -25,10 +25,10 @@ updateMap(workspace.Map)
 LocalPlayer.CharacterAdded:connect(function(char)
     if LocalPlayer.Status.Team.Value == "Spectator" then repeat wait() until LocalPlayer.Status.Team.Value ~= "Spectator" end
     char:WaitForChild("HumanoidRootPart")
-    wait(0.4)
+    wait(0.8)
     local folder = workspace.Map[LocalPlayer.Status.Team.Value .. "Spawns"]
     LocalPlayer.Character:SetPrimaryPartCFrame(folder:GetChildren()[math.random(1, #folder:GetChildren())].CFrame * CFrame.new(0, 4, 0))
-    wait(0.4)
+    wait(0.8)
     stom()
 end)
 workspace.ChildAdded:connect(function(th)
