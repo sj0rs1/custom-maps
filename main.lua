@@ -34,7 +34,7 @@ while getgenv().looped do wait()
             workspace.Gravity = 80
         end
         if map.settings:FindFirstChild("time") then
-            game.Lighting.TimeOfDay = map.settings.time.Value
+            game.Lighting.ClockTime = map.settings.time.Value
         end
         if map.settings:FindFirstChild("skybox") then
             if not game.Lighting:FindFirstChild("customsky") then
