@@ -37,14 +37,16 @@ while getgenv().looped do wait()
             game.Lighting.TimeOfDay = map.settings.time.Value
         end
         if map.settings:FindFirstChild("skybox") then
-            if game.Lighting:FindFirstChild("skybox") then
-                game.Lighting.skybox:Destroy()
+            if not game.Lighting:FindFirstChild("customsky") then
+                if game.Lighting:FindFirstChild("skybox") then
+                    game.Lighting.skybox:Destroy()
+                end
+                if game.Lighting:FindFirstChild("SunRays") then
+                    game.Lighting.SunRays.Enabled = false
+                end
+                local skybox = map.settings.skybox:Clone()
+                skybox.Parent = game.Lighting
             end
-            if game.Lighting:FindFirstChild("SunRays") then
-                game.Lighting.SunRays.Enabled = false
-            end
-            local skybox = map.settings.skybox:Clone()
-            skybox.Parent = game.Lighting
         end
     end
     if map and LocalPlayer.Character and LocalPlayer.Character.PrimaryPart then
